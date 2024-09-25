@@ -14,3 +14,117 @@ Product.create(name: "product 8", description: "lactose-free milk", quantity: 7,
 Product.create(name: "product 9", description: "hazelnut milk", quantity: 9, price: 20.25, available: true, released_at: DateTime.now - 6, expiry_date: DateTime.now + 22, discount: 0.10)
 Product.create(name: "product 10", description: "rice milk", quantity: 1, price: 19.95, available: false, released_at: DateTime.now - 8, expiry_date: DateTime.now + 12, discount: 0.15)
 ```
+
+* Create atleast 10 records using the save method
+
+```rails=
+product1 = Product.new
+product1.name = 'apple'
+product1.description = 'red fruit'
+product1.quantity = 1
+product1.price = 10.25
+product1.available = true
+product1.released_at = DateTime.now - 8
+product1.expiry_date = DateTime.now + 12
+product1.discount = 0.15
+product1.save
+
+product2 = Product.new
+product2.name = 'banana'
+product2.description = 'yellow fruit'
+product2.quantity = 2
+product2.price = 8.50
+product2.available = true
+product2.released_at = DateTime.now - 5
+product2.expiry_date = DateTime.now + 10
+product2.discount = 0.10
+product2.save
+
+product3 = Product.new
+product3.name = 'orange'
+product3.description = 'citrus fruit'
+product3.quantity = 3
+product3.price = 9.00
+product3.available = true
+product3.released_at = DateTime.now - 6
+product3.expiry_date = DateTime.now + 15
+product3.discount = 0.20
+product3.save
+
+product4 = Product.new
+product4.name = 'grape'
+product4.description = 'small berry'
+product4.quantity = 1
+product4.price = 12.00
+product4.available = false
+product4.released_at = DateTime.now - 4
+product4.expiry_date = DateTime.now + 8
+product4.discount = 0.05
+product4.save
+
+product5 = Product.new
+product5.name = 'pear'
+product5.description = 'sweet fruit'
+product5.quantity = 2
+product5.price = 11.50
+product5.available = true
+product5.released_at = DateTime.now - 2
+product5.expiry_date = DateTime.now + 14
+product5.discount = 0.10
+product5.save
+
+product6 = Product.new
+product6.name = 'kiwi'
+product6.description = 'fuzzy fruit'
+product6.quantity = 1
+product6.price = 15.00
+product6.available = false
+product6.released_at = DateTime.now - 7
+product6.expiry_date = DateTime.now + 5
+product6.discount = 0.25
+product6.save
+
+product7 = Product.new
+product7.name = 'mango'
+product7.description = 'tropical fruit'
+product7.quantity = 3
+product7.price = 13.75
+product7.available = true
+product7.released_at = DateTime.now - 3
+product7.expiry_date = DateTime.now + 20
+product7.discount = 0.15
+product7.save
+
+product8 = Product.new
+product8.name = 'peach'
+product8.description = 'juicy fruit'
+product8.quantity = 2
+product8.price = 9.99
+product8.available = true
+product8.released_at = DateTime.now - 1
+product8.expiry_date = DateTime.now + 18
+product8.discount = 0.10
+product8.save
+
+product9 = Product.new
+product9.name = 'plum'
+product9.description = 'purple fruit'
+product9.quantity = 1
+product9.price = 8.75
+product9.available = false
+product9.released_at = DateTime.now - 9
+product9.expiry_date = DateTime.now + 6
+product9.discount = 0.30
+product9.save
+
+product10 = Product.new
+product10.name = 'pineapple'
+product10.description = 'tropical delight'
+product10.quantity = 4
+product10.price = 14.00
+product10.available = true
+product10.released_at = DateTime.now - 11
+product10.expiry_date = DateTime.now + 22
+product10.discount = 0.10
+product10.save
+```
