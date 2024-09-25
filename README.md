@@ -128,3 +128,9 @@ product10.expiry_date = DateTime.now + 22
 product10.discount = 0.10
 product10.save
 ```
+
+* Fetch all products where name is "Laptop".
+
+```ruby=
+Product.find_by(name: 'Laptop') 
+```
