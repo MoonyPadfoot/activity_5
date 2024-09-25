@@ -1,4 +1,4 @@
-class CreatePosts < ActiveRecord::Migration[7.0]
+class CreateProducts< ActiveRecord::Migration[7.0]
   def change
     create_table :products do |t|
       t.string :name
@@ -8,7 +8,7 @@ class CreatePosts < ActiveRecord::Migration[7.0]
       t.boolean :available
       t.timestamp :released_at
       t.time :expiry_date
-      t.float :discount
+      t.integer :discount
       t.timestamps
     end
   end

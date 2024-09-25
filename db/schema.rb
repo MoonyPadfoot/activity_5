@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_25_073350) do
     t.boolean "available"
     t.timestamp "released_at"
     t.time "expiry_date"
-    t.float "discount"
+    t.integer "discount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
