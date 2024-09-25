@@ -181,3 +181,9 @@ Product.where(:price => 50..150)
 ```ruby=
 Product.where(available: false).and(Product.where("quantity > '0'"))
 ```
+
+* Fetch products where released_at is after January 1, 2023.
+
+```ruby=
+Product.where('released_at > ?', '2023-01-01')
+```
