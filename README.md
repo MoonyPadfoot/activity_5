@@ -157,3 +157,9 @@ Product.where("quantity < '50'")
 ```ruby=
 Product.where(discount: 10)
 ```
+
+* Retrieve products where name contains the word "Pro".
+
+```ruby=
+Product.where("name LIKE '%Pro%'")
+```
