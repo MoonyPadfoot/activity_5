@@ -187,3 +187,9 @@ Product.where(available: false).and(Product.where("quantity > '0'"))
 ```ruby=
 Product.where('released_at > ?', '2023-01-01')
 ```
+
+* Find products where expiry_date is nil.
+
+```ruby=
+Product.find_by(expiry_date: nil)
+```
