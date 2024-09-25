@@ -134,3 +134,9 @@ product10.save
 ```ruby=
 Product.find_by(name: 'Laptop') 
 ```
+
+* Find products where price is greater than 100.
+
+```ruby=
+Product.where("price > '100'")
+```
