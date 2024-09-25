@@ -140,3 +140,15 @@ Product.find_by(name: 'Laptop')
 ```ruby=
 Product.where("price > '100'")
 ```
+* Retrieve products where available is true.
+
+```ruby=
+Product.find_by(available: true)
+```
+
+* Fetch products where quantity is less than 50.
+
+```ruby=
+Product.where("quantity < '50'")
+```
+
