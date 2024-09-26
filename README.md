@@ -240,3 +240,9 @@ Product.where.not(price: 100)
 ```ruby=
 Product.where(quantity: nil)
 ```
+
+* Find products where discount is not nil.
+
+```ruby=
+Product.where.not(quantity: nil)
+```
