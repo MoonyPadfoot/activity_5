@@ -448,3 +448,9 @@ Product.where(available: true).and(Product.where("price > ?", 300)).each { |prod
 ```ruby=
 Product.where(discount: nil).each { |product| product.destroy }
 ```
+
+* Remove products where price is exactly 100.
+
+```ruby=
+Product.where(price: 100).each { |product| product.destroy }
+```
