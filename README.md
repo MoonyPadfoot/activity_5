@@ -306,3 +306,9 @@ Product.where(quantity: 10..80).update(price: 80)
 ```ruby=
 Product.where(expiry_date: ..DateTime.now - 1).update(discount: nil)
 ```
+
+* Update the name to "Premium Laptop" for products where price is more than 500.
+
+```ruby=
+Product.where(price: 501..).update(name: 'Premium Laptop')
+```
