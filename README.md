@@ -300,3 +300,9 @@ Product.where('released_at < ?', DateTime.new(2023, 01, 01)).update(available: t
 ```ruby=
 Product.where(quantity: 10..80).update(price: 80)
 ```
+
+* Remove any discount (set to nil) for products where expiry_date is before today.
+
+```ruby=
+Product.where(expiry_date: ..DateTime.now - 1).update(discount: nil)
+```
