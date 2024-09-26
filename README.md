@@ -288,3 +288,9 @@ Product.where('name LIKE ?', 'Pro%').update(quantity: 50)
 ```ruby=
 Product.where(discount: nil).update(price: 200)
 ```
+
+* Mark products as available if their released_at is before January 1, 2023.
+
+```ruby=
+Product.where('released_at < ?', DateTime.new(2023, 01, 01)).update(available: true)
+```
