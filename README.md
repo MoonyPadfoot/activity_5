@@ -418,3 +418,9 @@ Product.where('name LIKE ?', 'Pro%').each { |product| product.destroy }
 ```ruby=
 Product.where('price < ?', 50).each { |product| product.destroy }
 ```
+
+* Delete products where released_at is before January 1, 2022.
+
+```ruby=
+Product.where(released_at: ..DateTime.new(2022, 01, 01) - 1).each { |product| product.destroy }
+```
