@@ -264,3 +264,9 @@ Product.where(quantity: 0).update(available: false)
 ```ruby=
 Product.where('price > ?', 100).update(discount: 5)
 ```
+
+* Update the description to "Out of stock" for products where available is false.
+
+```ruby=
+Product.where(available: false).update(description: 'Out of stock')
+```
