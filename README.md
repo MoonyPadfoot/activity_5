@@ -406,3 +406,9 @@ Product.where(discount: 21..).each { |product| product.destroy }
 ```ruby=
 Product.where(expiry_date: ..DateTime.now - 1).each { |product| product.destroy }
 ```
+
+* Delete all products where name starts with "Pro".
+
+```ruby=
+Product.where('name LIKE ?', 'Pro%').each { |product| product.destroy }
+```
