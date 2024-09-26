@@ -466,3 +466,9 @@ Product.where("released_at < ?", Time.now - 5.years).each { |product| product.de
 ```ruby=
 Product.where('description LIKE ?', '%obsolete%').each { |product| product.destroy }
 ```
+
+* Delete products where quantity is nil.
+
+```ruby=
+Product.where(quantity: nil).each { |product| product.destroy }
+```
