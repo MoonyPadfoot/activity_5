@@ -330,3 +330,9 @@ Product.where(price: ..49).update(released_at: DateTime.now)
 ```ruby=
 Product.where(quantity: ..4).update(discount: 20)
 ```
+
+* Set the discount to 0% for products with a price greater than or equal to 300.
+
+```ruby=
+Product.where(price: 300..).update(discount: 0)
+```
