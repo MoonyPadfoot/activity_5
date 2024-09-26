@@ -276,3 +276,9 @@ Product.where(available: false).update(description: 'Out of stock')
 ```ruby=
 Product.where(discount: 11..).update(expiry_date: Date.new(2024, 12, 31))
 ```
+
+* Update the quantity to 50 for products where name starts with "Pro".
+
+```ruby=
+Product.where('name LIKE ?', 'Pro%').update(quantity: 50)
+```
