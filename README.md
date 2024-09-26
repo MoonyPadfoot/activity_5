@@ -357,3 +357,9 @@ products.each do |product|
     product.increment!(:quantity, 10)
 end
 ```
+
+* Set the expiry_date to nil for products where discount is less than 5%.
+
+```ruby=
+Product.where(discount: ..4).update(expiry_date: nil)
+```
