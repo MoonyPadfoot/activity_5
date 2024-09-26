@@ -382,3 +382,9 @@ product = Product.find_by(name: 'Laptop').destroy
 products = Product.where(available: false)
 products.each { |product| product.destroy }
 ```
+
+* Delete products where price is greater than 500.
+
+```ruby=
+Product.where(price: 501..).each { |product| product.destroy }
+```
