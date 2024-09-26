@@ -388,3 +388,9 @@ products.each { |product| product.destroy }
 ```ruby=
 Product.where(price: 501..).each { |product| product.destroy }
 ```
+
+* Remove all products where quantity is 0.
+
+```ruby=
+Product.where(price: 0).each { |product| product.destroy }
+```
