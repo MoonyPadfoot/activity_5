@@ -205,3 +205,9 @@ Product.where('released_at < ?', '2022-01-01')
 ```ruby=
 Product.where(quantity: [10..100])
 ```
+
+* Find products where discount is greater than or equal to 5%.
+
+```ruby=
+Product.where("discount >= ?", 5)
+```
