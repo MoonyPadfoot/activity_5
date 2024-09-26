@@ -436,3 +436,9 @@ Product.where('description LIKE ?', '%discontinued%').each { |product| product.d
 ```ruby=
 Product.where(quantity: 1..10).each { |product| product.destroy }
 ```
+
+* Remove all products where available is true and price is greater than 300.
+
+```ruby=
+Product.where(available: true).and(Product.where("price > ?", 300)).each { |product| product.destroy }
+```
