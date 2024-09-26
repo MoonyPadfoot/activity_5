@@ -200,5 +200,8 @@ Product.find_by(expiry_date: nil)
 Product.where('released_at < ?', '2022-01-01')
 ```
 
+* Fetch products where quantity is between 10 and 100.
 
+```ruby=
+Product.where(quantity: [10..100])
 ```
