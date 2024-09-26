@@ -244,5 +244,11 @@ Product.where(quantity: nil)
 * Find products where discount is not nil.
 
 ```ruby=
-Product.where.not(quantity: nil)
+Product.where.not(discount: nil)
+```
+
+* Update the price of a product where name is "Laptop" to 120.
+
+```ruby=
+Product.where(name: 'Laptop').update(price: 120)
 ```
