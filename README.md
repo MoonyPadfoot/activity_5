@@ -336,3 +336,9 @@ Product.where(quantity: ..4).update(discount: 20)
 ```ruby=
 Product.where(price: 300..).update(discount: 0)
 ```
+
+* Change the description to "Limited time offer" where the discount is 15%.
+
+```ruby=
+Product.where(discount: 15).update(description: 'Limited time offer')
+```
