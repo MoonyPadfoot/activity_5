@@ -484,3 +484,9 @@ Product.where(expiry_date: (DateTime.now + 1.months).all_month).each { |product|
 ```ruby=
 Product.where(discount: ..4).each { |product| product.destroy }
 ```
+
+* Remove all products where available is true but quantity is less than 5.
+
+```ruby=
+Product.where('available = ? AND quantity < ?', true, 5).each { |product| product.destroy }
+```
