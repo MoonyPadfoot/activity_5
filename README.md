@@ -400,3 +400,9 @@ Product.where(price: 0).each { |product| product.destroy }
 ```ruby=
 Product.where(discount: 21..).each { |product| product.destroy }
 ```
+
+* Remove products where expiry_date is before today’s date.
+
+```ruby=
+Product.where(expiry_date: ..DateTime.now - 1).each { |product| product.destroy }
+```
