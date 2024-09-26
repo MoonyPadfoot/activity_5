@@ -430,3 +430,9 @@ Product.where(released_at: ..DateTime.new(2022, 01, 01) - 1).each { |product| pr
 ```ruby=
 Product.where('description LIKE ?', '%discontinued%').each { |product| product.destroy }
 ```
+
+* Delete products where quantity is between 1 and 10.
+
+```ruby=
+Product.where(quantity: 1..10).each { |product| product.destroy }
+```
