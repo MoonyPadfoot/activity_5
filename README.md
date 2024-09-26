@@ -369,3 +369,9 @@ Product.where(discount: ..4).update(expiry_date: nil)
 ```ruby=
 Product.where('description LIKE ?' , '%sale%').update(price: 150)
 ```
+
+* Delete a product where name is "Laptop".
+
+```ruby=
+product = Product.find_by(name: 'Laptop').destroy
+```
