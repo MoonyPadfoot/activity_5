@@ -454,3 +454,9 @@ Product.where(discount: nil).each { |product| product.destroy }
 ```ruby=
 Product.where(price: 100).each { |product| product.destroy }
 ```
+
+* Delete products where released_at is more than 5 years ago.
+
+```ruby=
+Product.where("released_at < ?", Time.now - 5.years).each { |product| product.destroy }
+```
