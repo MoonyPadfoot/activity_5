@@ -490,3 +490,9 @@ Product.where(discount: ..4).each { |product| product.destroy }
 ```ruby=
 Product.where('available = ? AND quantity < ?', true, 5).each { |product| product.destroy }
 ```
+
+* Print the name of all the products
+
+```ruby=
+Product.all.pluck(:name).each { |name| puts name }
+```
