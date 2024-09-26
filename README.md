@@ -442,3 +442,9 @@ Product.where(quantity: 1..10).each { |product| product.destroy }
 ```ruby=
 Product.where(available: true).and(Product.where("price > ?", 300)).each { |product| product.destroy }
 ```
+
+* Delete products where discount is nil.
+
+```ruby=
+Product.where(discount: nil).each { |product| product.destroy }
+```
