@@ -348,3 +348,12 @@ Product.where(discount: 15).update(description: 'Limited time offer')
 ```ruby=
 Product.where(price: 100..200).update(available: true)
 ```
+
+* Increase the quantity by 10 for products where released_at is after January 1, 2023.
+
+```ruby=
+products = Product.where(released_at: DateTime.new(2023, 01, 01) + 1..)
+products.each do |product|
+    product.increment!(:quantity, 10)
+end
+```
