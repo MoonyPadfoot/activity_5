@@ -217,3 +217,9 @@ Product.where("discount >= ?", 5)
 ```ruby=
 Product.where("price <= ? AND available = ? ", 200, true)
 ```
+
+* Fetch products where expiry_date is before today’s date.
+
+```ruby=
+Product.where("expiry_date < ? ", DateTime.now)
+```
