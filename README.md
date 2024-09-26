@@ -394,3 +394,9 @@ Product.where(price: 501..).each { |product| product.destroy }
 ```ruby=
 Product.where(price: 0).each { |product| product.destroy }
 ```
+
+* Delete products where discount is greater than 20%.
+
+```ruby=
+Product.where(discount: 21..).each { |product| product.destroy }
+```
