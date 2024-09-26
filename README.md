@@ -375,3 +375,10 @@ Product.where('description LIKE ?' , '%sale%').update(price: 150)
 ```ruby=
 product = Product.find_by(name: 'Laptop').destroy
 ```
+
+* Remove all products where available is false
+
+```ruby=
+products = Product.where(available: false)
+products.each { |product| product.destroy }
+```
