@@ -412,3 +412,9 @@ Product.where(expiry_date: ..DateTime.now - 1).each { |product| product.destroy 
 ```ruby=
 Product.where('name LIKE ?', 'Pro%').each { |product| product.destroy }
 ```
+
+* Remove products where price is less than 50.
+
+```ruby=
+Product.where('price < ?', 50).each { |product| product.destroy }
+```
