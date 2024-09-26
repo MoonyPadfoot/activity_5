@@ -270,3 +270,9 @@ Product.where('price > ?', 100).update(discount: 5)
 ```ruby=
 Product.where(available: false).update(description: 'Out of stock')
 ```
+
+* Change the expiry_date to December 31, 2024, for products with a discount greater than 10%.
+
+```ruby=
+Product.where(discount: 11..).update(expiry_date: Date.new(2024, 12, 31))
+```
