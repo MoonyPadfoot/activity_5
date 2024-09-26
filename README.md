@@ -478,3 +478,9 @@ Product.where(quantity: nil).each { |product| product.destroy }
 ```ruby=
 Product.where(expiry_date: (DateTime.now + 1.months).all_month).each { |product| product.destroy }
 ```
+
+* Delete products where discount is less than 5%.
+
+```ruby=
+Product.where(discount: ..4).each { |product| product.destroy }
+```
