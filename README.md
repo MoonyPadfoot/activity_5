@@ -460,3 +460,9 @@ Product.where(price: 100).each { |product| product.destroy }
 ```ruby=
 Product.where("released_at < ?", Time.now - 5.years).each { |product| product.destroy }
 ```
+
+* Remove products where description includes "obsolete".
+
+```ruby=
+Product.where('description LIKE ?', '%obsolete%').each { |product| product.destroy }
+```
