@@ -472,3 +472,9 @@ Product.where('description LIKE ?', '%obsolete%').each { |product| product.destr
 ```ruby=
 Product.where(quantity: nil).each { |product| product.destroy }
 ```
+
+* Remove products where expiry_date is within the next month.
+
+```ruby=
+Product.where(expiry_date: (DateTime.now + 1.months).all_month).each { |product| product.destroy }
+```
