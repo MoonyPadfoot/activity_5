@@ -496,3 +496,9 @@ Product.where('available = ? AND quantity < ?', true, 5).each { |product| produc
 ```ruby=
 Product.all.pluck(:name).each { |name| puts name }
 ```
+
+* Write a new migration to rename the description to content
+
+```ruby=
+
+```
