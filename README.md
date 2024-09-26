@@ -424,3 +424,9 @@ Product.where('price < ?', 50).each { |product| product.destroy }
 ```ruby=
 Product.where(released_at: ..DateTime.new(2022, 01, 01) - 1).each { |product| product.destroy }
 ```
+
+* Remove products where description contains "discontinued".
+
+```ruby=
+Product.where('description LIKE ?', '%discontinued%').each { |product| product.destroy }
+```
