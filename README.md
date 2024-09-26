@@ -138,7 +138,7 @@ Product.find_by(name: 'Laptop')
 * Find products where price is greater than 100.
 
 ```ruby=
-Product.where("price > '100'")
+Product.where("price > ? ", 100)
 ```
 * Retrieve products where available is true.
 
@@ -149,7 +149,7 @@ Product.find_by(available: true)
 * Fetch products where quantity is less than 50.
 
 ```ruby=
-Product.where("quantity < '50'")
+Product.where("quantity < ? ", 50)
 ```
 
 * Find products where discount is exactly 10%.
@@ -161,13 +161,13 @@ Product.where(discount: 10)
 * Retrieve products where name contains the word "Pro".
 
 ```ruby=
-Product.where("name LIKE '%Pro%'")
+Product.where("name LIKE ? ", '%Pro%'")
 ```
 
 * Fetch products where description includes the word "portable".
 
 ```ruby=
-Product.where("description LIKE '%portable%'")
+Product.where("description LIKE ?", '%portable%'")
 ```
 
 * Find products where price is between 50 and 150.
@@ -210,4 +210,10 @@ Product.where(quantity: [10..100])
 
 ```ruby=
 Product.where("discount >= ?", 5)
+```
+
+* Retrieve products where price is less than or equal to 200 and available is true.
+
+```ruby=
+
 ```
