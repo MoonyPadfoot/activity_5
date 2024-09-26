@@ -363,3 +363,9 @@ end
 ```ruby=
 Product.where(discount: ..4).update(expiry_date: nil)
 ```
+
+* Update the price to 150 where the description contains "sale".
+
+```ruby=
+Product.where('description LIKE ?' , '%sale%').update(price: 150)
+```
