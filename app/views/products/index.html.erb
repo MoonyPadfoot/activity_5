@@ -1,0 +1,38 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <td>Name</td>
+      <td>Content</td>
+      <td>Image</td>
+      <td>Quantity</td>
+      <td>Price</td>
+      <td>Available</td>
+      <td>Released</td>
+      <td>Discount</td>
+      <td>Created At</td>
+      <td>Actions</td>
+    </tr>
+    </thead>
+    <tbody>
+    <% @product.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.content %></td>
+        <td><%= post.image %></td>
+        <td><%= post.quantity %></td>
+        <td><%= post.price %></td>
+        <td><%= post.available %></td>
+        <td><%= post.released_at %></td>
+        <td><%= post.discount %></td>
+        <td><%= post.created_at %></td>
+        <td>
+          <%= link_to 'show', product_path(post), class: 'btn btn-sm btn-primary' %>
+          <%= link_to 'edit', edit_product_path(post), class: 'btn btn-sm btn-warning' %>
+          <%= button_to 'Delete', product_path(post), method: :delete, class: 'btn btn-sm btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
