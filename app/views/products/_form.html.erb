@@ -1,8 +1,8 @@
-<%= form_with model: @article do |form| %>
+<%= form_with model: @product do |form| %>
   <div class="mb-3">
-    <%= form.label :title, class: 'form-label' %>
-    <%= form.text_field :title, class: "form-control" %>
-    <% @article.errors.full_messages_for(:title).each do |message| %>
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: "form-control" %>
+    <% @product.errors.full_messages_for(:name).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -10,7 +10,39 @@
   <div class="mb-3">
     <%= form.label :content, class: "form-label" %>
     <%= form.text_area :content, class: "form-control" %>
-    <% @article.errors.full_messages_for(:content).each do |message| %>
+    <% @product.errors.full_messages_for(:content).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :quantity, class: "form-label" %>
+    <%= form.number_field :quantity, class: "form-control" %>
+    <% @product.errors.full_messages_for(:quantity).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :price, class: "form-label" %>
+    <%= form.text_field :price, class: "form-control" %>
+    <% @product.errors.full_messages_for(:price).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :available, class: "form-label" %>
+    <%= form.select :available, ['true', 'false'], class: "form-control" %>
+    <% @product.errors.full_messages_for(:available).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :released_at, class: "form-label" %>
+    <%= form.datetime_local_field :released_at, class: "form-control" %>
+    <% @product.errors.full_messages_for(:released_at).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>

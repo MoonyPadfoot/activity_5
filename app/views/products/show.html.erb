@@ -6,18 +6,16 @@
       <h6 class="card-subtitle mt-2 mb-3 text-body-secondary text-center"><%= @product.content %></h6>
 
       <div class="row mb-2">
-        <div class="col-4">Qty:
+        <div class="col-6">Qty:
           <div class="fw-bold d-inline"><%= @product.quantity %></div>
-        <div class="col-8">Available:
+        </div>
+        <div class="col-6 text-end">Available:
           <div class="fw-bold d-inline"><%= @product.available %></div>
         </div>
-      </div>
-
-      <div class="row mb-2">
         <div class="col-4">Discount:
           <div class="fw-bold d-inline"><%= @product.discount %></div>
         </div>
-        <div class="col-8">Released Date:
+        <div class="col-8 text-end">Released Date:
           <div class="fw-bold d-inline"><%= @product.released_at.strftime("%B %d, %Y") %></div>
         </div>
       </div>
