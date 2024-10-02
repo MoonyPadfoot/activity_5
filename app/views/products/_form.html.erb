@@ -48,6 +48,22 @@
   </div>
 
   <div class="mb-3">
+    <%= form.label :discount, class: "form-label" %>
+    <%= form.number_field :discount, class: "form-control" %>
+    <% @product.errors.full_messages_for(:discount).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :image, class: "form-label" %>
+    <%= form.file_field :image, class: "form-control" %>
+    <% @product.errors.full_messages_for(:image).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
     <%= form.submit class: 'btn btn-lg btn-success' %>
   </div>
 <% end %>
