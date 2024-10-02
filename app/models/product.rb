@@ -6,8 +6,8 @@ class Product < ApplicationRecord
   validates :name, length: { minimum: 6, maximum: 50 }
   validates :content, length: { minimum: 10, maximum: 300 }
 
-  validates :quantity, numericality: { only_integer: true, :greater_than_or_equal_to => 0 }
-  validates :discount, numericality: { only_float: true, :in => 1..100 }
+  validates :quantity, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :discount, numericality: { only_float: true, in: 1..100 }
 
   validates :available, inclusion: { in: %w(true false), message: "%{value} should either be true or false" }
 
@@ -22,4 +22,7 @@ class Product < ApplicationRecord
       errors.add(:released_at, "must be greater than year 2000")
     end
   end
+
+  has_many :product_category_ships
+  has_many :categories, through: :product_category_ships
 end
