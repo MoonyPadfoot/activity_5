@@ -22,7 +22,7 @@
       <tr>
         <td class="text-nowrap"><%= product.name %></td>
         <td class="text-nowrap"><%= product.content %></td>
-        <td class="text-nowrap"><%= image_tag(product.image, alt: "#{product.name} image", style: 'width: 80px; height: 80px;', class: 'rounded') if product.image %></td>
+        <td class="text-nowrap"><%= image_tag(product.image, alt: "#{product.name} image", style: 'width: 80px; height: 80px;', class: 'rounded') if product.image.present? %></td>
         <td class="text-center"><%= product.quantity %></td>
         <td class="text-right"><%= product.price %></td>
         <td><%= product.available %></td>

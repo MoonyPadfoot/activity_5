@@ -25,4 +25,6 @@ class Product < ApplicationRecord
 
   has_many :product_category_ships
   has_many :categories, through: :product_category_ships
+
+  mount_uploader :image, ImageUploader
 end

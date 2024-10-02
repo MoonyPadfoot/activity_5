@@ -12,15 +12,16 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-
-    if @product.save
-      flash[:notice] = 'Product created successfully!'
-      redirect_to products_path
-    else
-      flash.now[:alert] = 'Product creation failed'
-      render :new, status: :unprocessable_entity
-    end
+    render :json => product_params[:image].avatar_identifier
+    # @product = Product.new(product_params)
+    #
+    # if @product.save
+    #   flash[:notice] = 'Product created successfully!'
+    #   redirect_to products_path
+    # else
+    #   flash.now[:alert] = 'Product creation failed'
+    #   render :new, status: :unprocessable_entity
+    # end
   end
 
   def edit; end
