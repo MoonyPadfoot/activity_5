@@ -3,7 +3,7 @@
     <%= form.label :name, class: 'form-label' %>
     <%= form.text_field :name, class: "form-control" %>
     <% @product.errors.full_messages_for(:name).each do |message| %>
-      <div><%= message %></div>
+      <div class="text-danger"><%= message %></div>
     <% end %>
   </div>
 
@@ -11,7 +11,7 @@
     <%= form.label :content, class: "form-label" %>
     <%= form.text_area :content, class: "form-control" %>
     <% @product.errors.full_messages_for(:content).each do |message| %>
-      <div><%= message %></div>
+      <div class="text-danger"><%= message %></div>
     <% end %>
   </div>
 
@@ -19,7 +19,7 @@
     <%= form.label :quantity, class: "form-label" %>
     <%= form.number_field :quantity, class: "form-control" %>
     <% @product.errors.full_messages_for(:quantity).each do |message| %>
-      <div><%= message %></div>
+      <div class="text-danger"><%= message %></div>
     <% end %>
   </div>
 
@@ -27,7 +27,7 @@
     <%= form.label :price, class: "form-label" %>
     <%= form.text_field :price, class: "form-control" %>
     <% @product.errors.full_messages_for(:price).each do |message| %>
-      <div><%= message %></div>
+      <div class="text-danger"><%= message %></div>
     <% end %>
   </div>
 
@@ -35,7 +35,7 @@
     <%= form.label :available, class: "form-label" %>
     <%= form.select :available, ['true', 'false'], class: "form-control" %>
     <% @product.errors.full_messages_for(:available).each do |message| %>
-      <div><%= message %></div>
+      <div class="text-danger"><%= message %></div>
     <% end %>
   </div>
 
@@ -43,7 +43,7 @@
     <%= form.label :released_at, class: "form-label" %>
     <%= form.datetime_local_field :released_at, class: "form-control" %>
     <% @product.errors.full_messages_for(:released_at).each do |message| %>
-      <div><%= message %></div>
+      <div class="text-danger"><%= message %></div>
     <% end %>
   </div>
 
@@ -51,7 +51,7 @@
     <%= form.label :discount, class: "form-label" %>
     <%= form.number_field :discount, class: "form-control" %>
     <% @product.errors.full_messages_for(:discount).each do |message| %>
-      <div><%= message %></div>
+      <div class="text-danger"><%= message %></div>
     <% end %>
   </div>
 
@@ -59,7 +59,7 @@
     <%= form.label :image, class: "form-label" %>
     <%= form.file_field :image, class: "form-control" %>
     <% @product.errors.full_messages_for(:image).each do |message| %>
-      <div><%= message %></div>
+      <div class="text-danger"><%= message %></div>
     <% end %>
   </div>
 
