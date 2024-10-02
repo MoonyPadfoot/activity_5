@@ -18,8 +18,8 @@ class Product < ApplicationRecord
   private
 
   def date_must_be_greater_than_specific_year
-    if date.present? && date <= Date.new(2000, 01, 01)
-      errors.add(:date, "must be greater than year 2000")
+    if released_at.present? && released_at <= Date.new(2000, 01, 01)
+      errors.add(:released_at, "must be greater than year 2000")
     end
   end
 end
