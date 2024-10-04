@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   validates :quantity, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :discount, numericality: { only_float: true, in: 1..100 }
 
-  validates :available, inclusion: { in: %w(true false), message: "%{value} should either be true or false" }
+  # validates :available, inclusion: { in: %w(Yes No), message: "%{value} should either be true or false" }
 
   validates :image, allow_blank: true, format: { with: %r{.(gif|jpg|png)\Z}i, message: 'must be a URL for GIF, JPG or PNG image.' }
 
@@ -23,8 +23,14 @@ class Product < ApplicationRecord
     end
   end
 
+  has_one :manufacturer
+  has_one :warranty
   has_many :product_category_ships
   has_many :categories, through: :product_category_ships
+  has_many :product_supplier_ships
+  has_many :products, through: :product_supplier_ships
+  has_many :order_items
+  has_many :reviews
 
   mount_uploader :image, ImageUploader
 end
