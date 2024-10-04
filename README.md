@@ -497,8 +497,29 @@ Product.where('available = ? AND quantity < ?', true, 5).each { |product| produc
 Product.all.pluck(:name).each { |name| puts name }
 ```
 
-* Write a new migration to rename the description to content
+* Validations rails console
 
 ```ruby=
+product = Product.new
 
+product.name = ''
+product.valid?(:name)
+product.errors[:name]
+
+product.content = ''
+product.valid?(:content)
+product.errors[:content]
+
+product.quantity = 2.3
+product.valid?(:quantity)
+product.errors[:quantity]
+
+product.discount = 101
+product.valid?(:discount)
+product.errors[:discount]
+
+product.realeased_at = Date.new(1998, 01, 02)
+product.valid?(:released_at)
+product.errors[:released_at]
 ```
+
