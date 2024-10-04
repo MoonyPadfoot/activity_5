@@ -505,21 +505,26 @@ product = Product.new
 product.name = ''
 product.valid?(:name)
 product.errors[:name]
+product.errors.full_messages_for(:name).first
 
 product.content = ''
 product.valid?(:content)
 product.errors[:content]
+product.errors.full_messages_for(:content).first
 
 product.quantity = 2.3
 product.valid?(:quantity)
 product.errors[:quantity]
+product.errors.full_messages_for(:quantity).first
 
 product.discount = 101
 product.valid?(:discount)
 product.errors[:discount]
+product.errors.full_messages_for(:discount).first
 
 product.realeased_at = Date.new(1998, 01, 02)
 product.valid?(:released_at)
 product.errors[:released_at]
+product.errors.full_messages_for(:released_at).first
 ```
 
