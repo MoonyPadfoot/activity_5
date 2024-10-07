@@ -1,4 +1,10 @@
 class Product < ApplicationRecord
+  scope :search_by_name, ->(query) { where('name LIKE ?', "%#{query}%") if query.present? && query != "" }
+  scope :filter_by_available, ->(available) { where(available: available) }
+  scope :filter_by_quantity, ->(quantity_min, quantity_max) { where(quantity: quantity_min..quantity_max) if quantity_min.present? && quantity_max.present? }
+  scope :filter_by_price, ->(price_min, price_max) { where(price: price_min..price_max) if price_min.present? && price_max.present? }
+  scope :filter_by_released_at, ->(released_at_start, released_at_end) { where(price: released_at_start..released_at_end) if released_at_start.present? && released_at_end.present? }
+
   NON_VALIDATABLE_ATTRS = ["id", "created_at", "updated_at"]
   VALIDATABLE_ATTRS = Product.attribute_names.reject { |attr| NON_VALIDATABLE_ATTRS.include?(attr) }
 

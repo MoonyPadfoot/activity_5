@@ -3,22 +3,11 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-
-    @products = Product.where("name LIKE ?", "%#{ params[:query] }%") if params[:query].present? && params[:query] != ""
-    @products = @products.where(available: params[:available])
-
-    if params[:price_min].present? && params[:price_min] != "" && params[:price_max].present? && params[:price_max] != ""
-      @products = @products.where(price: params[:price_min]..params[:price_max])
-    end
-
-    if params[:quantity_min].present? && params[:quantity_min] != "" && params[:quantity_max].present? && params[:quantity_max] != ""
-      @products = @products.where(quantity: params[:quantity_min]..params[:quantity_max])
-    end
-
-    if params[:released_at_start].present? && params[:released_at_start] != "" && params[:released_at_end].present? && params[:released_at_end] != ""
-      @products = @products.where(released_at: params[:released_at_start]..params[:released_at_end])
-    end
-
+                       .search_by_name(params[:name])
+                       .filter_by_available(params[:available] || true)
+                       .filter_by_quantity(params[:quantity_min], params[:quantity_max])
+                       .filter_by_price(params[:price_min], params[:price_max])
+                       .filter_by_released_at(params[:released_at_start], params[:released_at_end])
   end
 
   def show; end
