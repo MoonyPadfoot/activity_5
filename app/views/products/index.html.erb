@@ -87,9 +87,9 @@
       <div class="col">
         <h4 class="my-2">Availability</h4>
 
-        <%= form.radio_button :available, true, checked: true %>
+        <%= form.radio_button :available, true, checked: (!params[:available].present? && !params[:available].present? || params[:available] == "true") %>
         <%= form.label :available_true, "Available", class: "me-3" %>
-        <%= form.radio_button :available, false %>
+        <%= form.radio_button :available, false, checked: (params[:available].present? && params[:available] == "false") %>
         <%= form.label :available_false, "Unavailable" %>
       </div>
 

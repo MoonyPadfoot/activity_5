@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
     @products = Product.all
 
     @products = Product.where("name LIKE ?", "%#{ params[:query] }%") if params[:query].present? && params[:query] != ""
+    @products = @products.where(available: params[:available])
 
     if params[:price_min].present? && params[:price_min] != "" && params[:price_max].present? && params[:price_max] != ""
       @products = @products.where(price: params[:price_min]..params[:price_max])
@@ -12,10 +13,6 @@ class ProductsController < ApplicationController
 
     if params[:quantity_min].present? && params[:quantity_min] != "" && params[:quantity_max].present? && params[:quantity_max] != ""
       @products = @products.where(quantity: params[:quantity_min]..params[:quantity_max])
-    end
-
-    if params[:available].present? && params[:available] != ""
-      @products = @products.where(available: params[:available])
     end
 
     if params[:released_at_start].present? && params[:released_at_start] != "" && params[:released_at_end].present? && params[:released_at_end] != ""
