@@ -120,7 +120,7 @@
     <% @products.each do |product| %>
       <tr>
         <td class="text-nowrap"><%= product.name %></td>
-        <td class="text-nowrap"><%= product.content %></td>
+        <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;"><%= product.content %></td>
         <td class="text-nowrap"><%= image_tag(product.image.url, alt: "#{product.name} image", style: 'width: 80px; height: 80px;', class: 'rounded') if product.image.present? %></td>
         <td class="text-center"><%= product.quantity %></td>
         <td class="text-right"><%= product.price %></td>
@@ -138,4 +138,5 @@
     <% end %>
     </tbody>
   </table>
+  <%= paginate @products %>
 </div>
