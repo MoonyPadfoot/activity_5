@@ -1,30 +1,8 @@
 <div class="container d-flex justify-content-center pt-3">
-  <div class="card shadow w-50 p-4">
-    <h1>View Product</h1>
-    <%= image_tag(@product.image.url, style: 'width: 20rem', class: 'rounded card-img-top mx-auto') if @product.image.present? %>
-    <div class="card-body">
-      <h3 class="card-title text-center"><%= @product.name %></h3>
-      <h6 class="card-subtitle mt-2 mb-3 text-body-secondary text-center"><%= @product.content %></h6>
+  <div class="card shadow p-4" style="width: 30rem;">
+    <h1 class="text-center">View Product</h1>
 
-      <div class="row mb-2">
-        <div class="col-6">Qty:
-          <div class="fw-bold d-inline"><%= @product.quantity %></div>
-        </div>
-        <div class="col-6 text-end">Available:
-          <div class="fw-bold d-inline"><%= @product.available %></div>
-        </div>
-        <div class="col-4">Discount:
-          <div class="fw-bold d-inline"><%= @product.discount %></div>
-        </div>
-        <div class="col-8 text-end">Released Date:
-          <div class="fw-bold d-inline"><%= @product.released_at.strftime("%B %d, %Y") %></div>
-        </div>
-      </div>
-
-      <div class="mt-3 text-center">Created At:
-        <p class="d-inline"><%= @product.created_at.strftime("%B %d, %Y %I:%M %p") %></p>
-      </div>
-    </div>
+    <%= render 'products/shared/product' %>
 
   </div>
 </div>
