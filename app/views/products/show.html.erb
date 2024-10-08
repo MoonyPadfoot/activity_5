@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-center pt-3">
-  <div class="card w-50 p-4">
+  <div class="card shadow w-50 p-4">
     <h1>View Product</h1>
     <%= image_tag(@product.image.url, style: 'width: 20rem', class: 'rounded card-img-top mx-auto') if @product.image.present? %>
     <div class="card-body">
