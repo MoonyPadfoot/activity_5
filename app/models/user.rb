@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
   validates :username, uniqueness: true, presence: true
+
+  def email_required?
+    false
+  end
 end
