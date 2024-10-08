@@ -10,6 +10,8 @@
   <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
 </head>
 
+<%= render 'layouts/shared/nav' %>
+
 <% if flash[:alert] %>
   <div class="alert alert-danger" role="alert"><%= alert %></div>
 <% end %>
@@ -17,7 +19,6 @@
   <div class="alert alert-success" role="alert"><%= notice %></div>
 <% end %>
 
-<%= render 'layouts/shared/nav' %>
 <%= yield %>
 
 </html>
