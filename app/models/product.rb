@@ -1,4 +1,13 @@
 class Product < ApplicationRecord
+  has_one :manufacturer
+  has_one :warranty
+  has_many :product_category_ships
+  has_many :categories, through: :product_category_ships
+  has_many :product_supplier_ships
+  has_many :products, through: :product_supplier_ships
+  has_many :order_items
+  has_many :reviews
+
   scope :search_by_name, ->(query) { where('name LIKE ?', "%#{query}%") if query.present? && query != "" }
   scope :filter_by_available, ->(available) { where(available: available) }
   scope :filter_by_quantity, ->(quantity_min, quantity_max) { where(quantity: quantity_min..quantity_max) if quantity_min.present? && quantity_max.present? }
@@ -28,15 +37,6 @@ class Product < ApplicationRecord
       errors.add(:released_at, "must be greater than year 2000")
     end
   end
-
-  has_one :manufacturer
-  has_one :warranty
-  has_many :product_category_ships
-  has_many :categories, through: :product_category_ships
-  has_many :product_supplier_ships
-  has_many :products, through: :product_supplier_ships
-  has_many :order_items
-  has_many :reviews
 
   mount_uploader :image, ImageUploader
 end
