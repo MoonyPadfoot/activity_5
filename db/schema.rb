@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_08_070722) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_10_021459) do
   create_table "categories", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -19,10 +19,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_08_070722) do
   end
 
   create_table "engagements", charset: "utf8mb4", force: :cascade do |t|
-    t.boolean "like"
-    t.bigint "user_id", null: false
+    t.bigint "product_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_engagements_on_product_id"
     t.index ["user_id"], name: "index_engagements_on_user_id"
   end
 
@@ -115,7 +116,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_08_070722) do
     t.index ["product_id"], name: "index_warranties_on_product_id"
   end
 
-  add_foreign_key "engagements", "users"
   add_foreign_key "manufacturers", "products"
   add_foreign_key "order_items", "products"
   add_foreign_key "reviews", "products"
