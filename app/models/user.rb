@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   has_many :engagements
   has_many :engaged_products, through: :engagements
-  has_many :reviews
 
   validates :email, uniqueness: true
   validates :username, uniqueness: true, presence: true
