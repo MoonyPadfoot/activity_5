@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.4"
 
+gem 'faker'
+
 gem 'devise'
 
 gem 'kaminari'
