@@ -8,7 +8,7 @@ class Product < ApplicationRecord
   has_many :engagements
   has_many :engaging_users, through: :engagements
   has_many :order_items
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   scope :search_by_name, ->(query) { where('name LIKE ?', "%#{query}%") if query.present? && query != "" }
   scope :filter_by_available, ->(available) { where(available: available) }
@@ -16,19 +16,19 @@ class Product < ApplicationRecord
   scope :filter_by_price, ->(price_min, price_max) { where(price: price_min..price_max) if price_min.present? && price_max.present? }
   scope :filter_by_released_at, ->(released_at_start, released_at_end) { where(price: released_at_start..released_at_end) if released_at_start.present? && released_at_end.present? }
 
-  NON_VALIDATABLE_ATTRS = ["id", "created_at", "updated_at"]
+  NON_VALIDATABLE_ATTRS = ["id", "created_at", "updated_at", "available", "image"]
   VALIDATABLE_ATTRS = Product.attribute_names.reject { |attr| NON_VALIDATABLE_ATTRS.include?(attr) }
 
   validates_presence_of VALIDATABLE_ATTRS
-  validates :name, length: { minimum: 6, maximum: 50 }
+  validates :name, length: { minimum: 3, maximum: 50 }
   validates :content, length: { minimum: 10, maximum: 300 }
 
   validates :quantity, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :discount, numericality: { only_float: true, in: 1..100 }
 
-  validates :available, inclusion: { in: [true, false], message: "%{value} should either be true or false" }
-
-  validates :image, allow_blank: true, format: { with: %r{.(gif|jpg|png)\Z}i, message: 'must be a URL for GIF, JPG or PNG image.' }
+  # validates :available, inclusion: { in: [true, false], message: "%{value} should either be true or false" }
+  #
+  # validates :image, allow_blank: true, format: { with: %r{.(gif|jpg|png)\Z}i, message: 'must be a URL for GIF, JPG or PNG image.' }
 
   validate :date_must_be_greater_than_specific_year
 
