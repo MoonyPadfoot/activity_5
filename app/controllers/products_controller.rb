@@ -58,12 +58,11 @@ class ProductsController < ApplicationController
   end
 
   def set_search_filter
-    @products = Product.all
+    @products = Product.page(params[:page]).per(5)
                        .search_by_name(params[:name])
                        .filter_by_available(params[:available] || true)
                        .filter_by_quantity(params[:quantity_min], params[:quantity_max])
                        .filter_by_price(params[:price_min], params[:price_max])
                        .filter_by_released_at(params[:released_at_start], params[:released_at_end])
-                       .page(params[:page]).per(5)
   end
 end
