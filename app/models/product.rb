@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   has_many :product_category_ships
   has_many :categories, through: :product_category_ships
   has_many :product_supplier_ships
-  has_many :products, through: :product_supplier_ships
+  has_many :suppliers, through: :product_supplier_ships
   has_many :engagements
   has_many :engaging_users, through: :engagements
   has_many :order_items
