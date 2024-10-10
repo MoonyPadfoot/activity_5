@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_10_021459) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_10_051310) do
   create_table "categories", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -81,7 +81,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_10_021459) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "content"
+    t.bigint "user_id", null: false
     t.index ["product_id"], name: "index_reviews_on_product_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "suppliers", charset: "utf8mb4", force: :cascade do |t|
@@ -119,6 +121,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_10_021459) do
   add_foreign_key "manufacturers", "products"
   add_foreign_key "order_items", "products"
   add_foreign_key "reviews", "products"
+  add_foreign_key "reviews", "users"
   add_foreign_key "suppliers", "products"
   add_foreign_key "warranties", "products"
 end
