@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :username, uniqueness: true, presence: true
   has_many :engagements
+  has_many :engaged_products, :engagements
 
   def email_required?
     false
