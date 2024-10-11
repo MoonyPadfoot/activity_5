@@ -14,4 +14,6 @@ class User < ApplicationRecord
   def email_required?
     false
   end
+
+  enum role: { client: 0, admin: 1 }
 end
