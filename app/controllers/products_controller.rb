@@ -2,23 +2,25 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.page(params[:page]).per(5)
-                       .search_by_name(params[:name])
-                       .filter_by_available(params[:available] || true)
+    @products = Product.order(created_at: :desc)
+                       .filter_by_name(params[:name])
+                       .filter_by_available(params[:available])
                        .filter_by_quantity(params[:quantity_min], params[:quantity_max])
                        .filter_by_price(params[:price_min], params[:price_max])
                        .filter_by_released_at(params[:released_at_start], params[:released_at_end])
+                       .page(params[:page]).per(5)
   end
 
   def show; end
 
   def my_shop
-    @products = Product.page(params[:page]).per(9)
-                       .search_by_name(params[:name])
+    @products = Product.order(created_at: :desc)
+                       .filter_by_name(params[:name])
                        .filter_by_available(true)
                        .filter_by_quantity(params[:quantity_min], params[:quantity_max])
                        .filter_by_price(params[:price_min], params[:price_max])
                        .filter_by_released_at(params[:released_at_start], params[:released_at_end])
+                       .page(params[:page]).per(9)
   end
 
   def new
@@ -53,7 +55,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     flash[:notice] = 'Product deleted successfully!'
-    redirect_to products_path
+    redirect_to products_path(page: params[:page])
   end
 
   private

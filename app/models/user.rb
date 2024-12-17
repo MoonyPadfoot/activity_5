@@ -11,9 +11,10 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :username, uniqueness: true, presence: true
 
+  enum role: { client: 0, admin: 1 }
+
   def email_required?
     false
   end
 
-  enum role: { client: 0, admin: 1 }
 end

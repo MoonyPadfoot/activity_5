@@ -41,7 +41,7 @@
 
   <div class="mb-3">
     <%= form.label :released_at, class: "form-label" %>
-    <%= form.datetime_local_field :released_at, class: "form-control" %>
+    <%= form.datetime_local_field :released_at, class: "form-control" if product.errors[:released_at].present? %>
     <% @product.errors.full_messages_for(:released_at).each do |message| %>
       <div class="text-danger"><%= message %></div>
     <% end %>
